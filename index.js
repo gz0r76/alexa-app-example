@@ -39,7 +39,7 @@ alexaApp.intent("nameIntent", {
     ]
   },
   function(request, response) {
-   var AmazonSpeech = require('ssml-builder/amazon_speech');
+  
 
    var Speech = require('ssml-builder');
 
