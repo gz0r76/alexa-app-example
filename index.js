@@ -50,13 +50,10 @@ var speech = new AmazonSpeech()
   .pause('1s')
   .say (request.slot("NAME"))
   .pause('200ms')
-  .whisper('I can see you when you are sleeping')
+  .whisper('I know your name is '+request.slot("NAME"))
   .pause('500ms')
-  .say('Is your phone number still')
-  .sayAs({
-    word: "+1-234-567-8900",
-    interpret: "telephone"
-  });
+  .say('You just checking if you still can hear?')
+  ;
 
 var speechOutput = speech.ssml();
 response.say(speechOutput);
