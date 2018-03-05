@@ -39,7 +39,8 @@ alexaApp.intent("nameIntent", {
     ]
   },
   function(request, response) {
-    response.say("Success!");
+    response.say("DUPA.Success!");
+  
   }
 );
 
