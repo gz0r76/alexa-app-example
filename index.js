@@ -48,6 +48,8 @@ var AmazonSpeech = require('ssml-builder/amazon_speech');
 var speech = new AmazonSpeech()
   .say('Hello')
   .pause('1s')
+  .say (request.slot("NAME"))
+  .pause('200ms')
   .whisper('I can see you when you are sleeping')
   .pause('500ms')
   .say('Is your phone number still')
