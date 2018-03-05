@@ -1,5 +1,7 @@
 var express = require("express");
 var alexa = require("alexa-app");
+var Speech = require("ssml-builder");
+
 
 var PORT = process.env.PORT || 8080;
 var app = express();
@@ -41,8 +43,7 @@ alexaApp.intent("nameIntent", {
   function(request, response) {
   
 
-   var Speech = require('ssml-builder');
-
+ 
 var speech = new Speech()
   .say('Hello')
   .pause('1s')
