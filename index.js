@@ -1,6 +1,6 @@
 var express = require("express");
 var alexa = require("alexa-app");
-var Speech = require("ssml-builder");
+
 
 
 var PORT = process.env.PORT || 8080;
@@ -43,20 +43,20 @@ alexaApp.intent("nameIntent", {
   function(request, response) {
   
 
- 
-var speech = new Speech()
+var AmazonSpeech = require('ssml-builder/amazon_speech');
+
+var speech = new AmazonSpeech()
   .say('Hello')
   .pause('1s')
-  .say('fellow Alexa developers')
+  .whisper('I can see you when you are sleeping')
   .pause('500ms')
-  .say('Testing phone numbers')
+  .say('Is your phone number still')
   .sayAs({
     word: "+1-234-567-8900",
     interpret: "telephone"
   });
 
-// change 'true' to 'false' if you want to include the surrounding <speak/> tag
-var speechOutput = speech.ssml(true);
+var speechOutput = speech.ssml();
 response.say(speechOutput);
   
   }
