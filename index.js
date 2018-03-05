@@ -39,7 +39,21 @@ alexaApp.intent("nameIntent", {
     ]
   },
   function(request, response) {
-    response.say("DUPA.Success!");
+   var AmazonSpeech = require('ssml-builder/amazon_speech');
+
+   var speech = new AmazonSpeech()
+  .say('Hello')
+  .pause('1s')
+  .whisper('I can see you when you are sleeping')
+  .pause('500ms')
+  .say('Is your phone number still')
+  .sayAs({
+    word: "+1-234-567-8900",
+    interpret: "telephone"
+  });
+
+  var speechOutput = speech.ssml();
+  response.say(speechOutput);
   
   }
 );
