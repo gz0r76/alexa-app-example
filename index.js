@@ -41,19 +41,22 @@ alexaApp.intent("nameIntent", {
   function(request, response) {
    var AmazonSpeech = require('ssml-builder/amazon_speech');
 
-   var speech = new AmazonSpeech()
+   var Speech = require('ssml-builder');
+
+var speech = new Speech()
   .say('Hello')
   .pause('1s')
-  .whisper('I can see you when you are sleeping')
+  .say('fellow Alexa developers')
   .pause('500ms')
-  .say('Is your phone number still')
+  .say('Testing phone numbers')
   .sayAs({
     word: "+1-234-567-8900",
     interpret: "telephone"
   });
 
-  var speechOutput = speech.ssml();
-  response.say(speechOutput);
+// change 'true' to 'false' if you want to include the surrounding <speak/> tag
+var speechOutput = speech.ssml(true);
+response.say(speechOutput);
   
   }
 );
