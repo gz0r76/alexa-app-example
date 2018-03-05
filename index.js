@@ -37,7 +37,7 @@ alexaApp.dictionary = { "names": ["matt", "joe", "bob", "bill", "mary", "jane", 
 alexaApp.intent("nameIntent", {
     "slots": { "NAME": "LITERAL" },
     "utterances": [
-      "my {name is|name's} {names|NAME}", "set my name to {names|NAME}"
+      "{names|NAME} my {name is|name's} ", "set my name to {names|NAME}"
     ]
   },
   function(request, response) {
